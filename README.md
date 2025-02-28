@@ -1,4 +1,4 @@
-<h1>Projeto: Curso Udemy - Arquitetura de Microsserviços: Padrão Saga Orquestrado</h1>
+<h1>Projeto: De Curso - Arquitetura de Microsserviços: Padrão Saga Orquestrado</h1>
 
 <p>Repositório contendo o projeto desenvolvido do curso <strong>Arquitetura de Microsserviços: Padrão Saga Orquestrado</strong></p>
 
