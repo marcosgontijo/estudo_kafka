@@ -1,0 +1,11 @@
+UP DOCKER 
+docker-compose up --build -d
+
+CONECTAR NO MONGO VIA DOCKER
+docker exec =it order-db mongosh "mongodb://admin:123456@localhost:27017"
+
+PARA USAR ADMIN 
+-use admin
+
+LIMPAR TODAS IMAGENS DOCKER 
+docker-compose down -v
