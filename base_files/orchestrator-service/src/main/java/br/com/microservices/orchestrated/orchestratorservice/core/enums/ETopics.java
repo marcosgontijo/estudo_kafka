@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum ETopics {
 
     START_SAGA("start-saga"),
-    BASE_ORCHESTRATOR("orchestrador"),
+    BASE_ORCHESTRATOR("orchestrator"),
     FINISH_SUCCESS("finish-success"),
     FINISH_FAIL("finish-fail"),
     PRODUCT_VALIDATION_SUCCESS("product-validation-success"),
