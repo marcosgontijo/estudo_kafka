@@ -1,5 +1,4 @@
 package br.com.microservices.orchestrated.inventoryservice.config.kafka;
-
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -87,7 +86,6 @@ public class KafkaConfig {
     public NewTopic orchestratorTopic() {
         return buildTopic(orchestratorTopic);
     }
-
     @Bean
     public NewTopic inventorySuccessTopic() {
         return buildTopic(inventorySuccessTopic);

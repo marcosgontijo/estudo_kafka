@@ -1,6 +1,5 @@
 package br.com.microservices.orchestrated.orderservice.config.kafka;
 
-import jdk.jfr.Enabled;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -45,7 +44,7 @@ public class KafkaConfig {
         return new DefaultKafkaConsumerFactory<>(consumerProps());
     }
 
-    private Map<String, Object> consumerProps(){
+    private Map<String, Object> consumerProps() {
         var props = new HashMap<String, Object>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
@@ -56,11 +55,11 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ProducerFactory<String, String> producerFactory(){
+    public ProducerFactory<String, String> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerProps());
     }
 
-    private Map<String, Object> producerProps(){
+    private Map<String, Object> producerProps() {
         var props = new HashMap<String, Object>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -69,15 +68,15 @@ public class KafkaConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory<String, String> producerFactory){
+    public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory<String, String> producerFactory) {
         return new KafkaTemplate<>(producerFactory);
     }
 
-    private NewTopic buildTopic(String name){
+    private NewTopic buildTopic(String name) {
         return TopicBuilder
                 .name(name)
-                .replicas(REPLICA_COUNT)
                 .partitions(PARTITION_COUNT)
+                .replicas(REPLICA_COUNT)
                 .build();
     }
 
@@ -90,5 +89,4 @@ public class KafkaConfig {
     public NewTopic notifyEndingTopic() {
         return buildTopic(notifyEndingTopic);
     }
-
 }

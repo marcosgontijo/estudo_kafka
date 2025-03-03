@@ -12,8 +12,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class SagaProducer {
 
-    private final KafkaTemplate<String, String> kafaKafkaTemplate;
-
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Value("${spring.kafka.topic.start-saga}")
     private String startSagaTopic;
@@ -21,10 +20,9 @@ public class SagaProducer {
     public void sendEvent(String payload) {
         try {
             log.info("Sending event to topic {} with data {}", startSagaTopic, payload);
-            kafaKafkaTemplate.send(startSagaTopic, payload);
+            kafkaTemplate.send(startSagaTopic, payload);
         } catch (Exception ex) {
             log.error("Error trying to send data to topic {} with data {}", startSagaTopic, payload, ex);
         }
     }
-
 }

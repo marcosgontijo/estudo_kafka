@@ -9,7 +9,7 @@ spring:
       payment-success: payment-success
       payment-fail: payment-fail
     consumer:
-      group:id: orchestrator-group
+      group-id: payment-group
       auto-offset-reset: latest
 
   datasource:
@@ -18,7 +18,6 @@ spring:
     username: ${DB_USER:postgres}
     password: ${DB_PASSWORD:postgres}
 
-
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -26,8 +25,8 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
-  logging:
-    level:
-      org:
-        apache:
-          kafka: OFF
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
