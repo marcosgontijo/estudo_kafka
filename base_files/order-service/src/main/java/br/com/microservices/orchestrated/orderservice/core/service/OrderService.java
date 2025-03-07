@@ -37,7 +37,7 @@ public class OrderService {
 
         repository.save(order);
         producer.sendEvent(jsonUtil.toJson(createPayload(order)));
-        return order
+        return order;
     }
 
     private Event createPayload(Order order) {
